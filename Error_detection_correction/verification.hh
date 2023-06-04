@@ -20,10 +20,10 @@ bool isBlockSizeValid(string const & s, int bs){
 }
 
 bool is_leeding_zero(string const &fx){
-    bool flag=true;
+    bool flag=false;
     if(fx[0]=='0')
     {
-        flag=false;
+        flag=true;
     }
     return flag;   
 }

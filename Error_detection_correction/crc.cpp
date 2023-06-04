@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include "verification.hh"
 using namespace std;
 
 
@@ -44,7 +45,13 @@ string binary_modulo(string div,string fx){
     }
 
     string rem= div.substr(0,q);
-    rem=bitwise_xor(rem,fx);
+    if(rem[0]=='1'){
+        rem=bitwise_xor(rem,fx);
+    }
+    else{
+        rem=bitwise_xor(rem,zero);
+    }
+        
 
     for(int i=0;i<p-q;i++){
         //cout<<div[i+4];
@@ -72,9 +79,25 @@ string crc_generate(string div,string fx){
 
 int main(int argc, char const *argv[])
 {
-    string s1,s2;
-    cin>>s1>>s2;
-    cout<<crc_generate(s1,s2)<<endl;
+    cout<<"Write the binary data"<<endl;
+    string data;
+    cin>>data;
+    if((!isBinaryStringValid(data)))
+    {
+        cout<<"Error :The given input string is not binay"<<endl;
+        cout<<"Terminating the program"<<endl;
+        return 0;
+    }
     
+    cout<<"Write the encoding function"<<endl;
+    string fx;
+    cin >>fx;
+    if(!(is_crc_function_valid(data,fx))){
+        return 0;
+    }
+
+    string gen_crc=crc_generate(data,fx);
+    cout<<gen_crc<<endl;
+
     return 0;
 }
