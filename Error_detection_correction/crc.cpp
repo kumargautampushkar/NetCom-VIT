@@ -61,79 +61,20 @@ string binary_modulo(string div,string fx){
     return popfront(rem);
 }
 
+string crc_generate(string div,string fx){
+    //string dividend = div;
+    for(int i=0;i<fx.size()-1;i++){
+        div.push_back('0');
+    }
+    return binary_modulo(div,fx);
+}
+
 
 int main(int argc, char const *argv[])
 {
     string s1,s2;
     cin>>s1>>s2;
-    cout<<binary_modulo(s1,s2)<<endl;
-
+    cout<<crc_generate(s1,s2)<<endl;
+    
     return 0;
 }
-/*
-string crc(string div, string fx){
-    string zero=fx;
-    for(int i=0;i<fx.size();i++){
-        zero[i]='0';
-    }
-    for(int i=0;i<fx.size()-1;i++){
-        div.push_back('0');
-    }
-    string ans=div.substr(0,fx.size());
-    if(ans[0]=='1'){
-        ans=bitwise_xor(ans,fx);
-    }
-    else{
-        ans=bitwise_xor(ans,zero);
-    }
-    for(int i=0;i<div.size()-1;i++){
-        if(ans[0]=='1'){
-            ans=popfront(ans);
-            ans.push_back(div[i+4]);
-            ans=bitwise_xor(ans,fx);
-        }else{
-            ans=popfront(ans);
-            ans.push_back(div[i+4]);
-            ans=bitwise_xor(ans,zero);
-        }
-    }
-    ans=popfront(ans);
-    return ans;
-
-}
-
-string binary_div(string div, string fx){
-    string zero=fx;
-    for(int i=0;i<fx.size();i++){
-        zero[i]='0';
-    }
-
-    // for(int i=0;i<fx.size()-1;i++){
-    //     div.push_back('0');
-    // }
-
-    string ans=div.substr(0,fx.size());
-    if(ans[0]=='1'){
-        ans=bitwise_xor(ans,fx);
-    }
-    else{
-        ans=bitwise_xor(ans,zero);
-    }
-    for(int i=0;i<div.size()-1;i++){
-        if(ans[0]=='1'){
-            ans=popfront(ans);
-            ans.push_back(div[i+4]);
-            ans=bitwise_xor(ans,fx);
-        }else{
-            ans=popfront(ans);
-            ans.push_back(div[i+4]);
-            ans=bitwise_xor(ans,zero);
-        }
-    }
-    ans=popfront(ans);
-    return ans;
-
-}
-
-*/
-
