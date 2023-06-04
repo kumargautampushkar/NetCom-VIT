@@ -7,6 +7,7 @@ int main(int argc, char const *argv[])
 {
     string k;
     cin>>k;
-    cout<<hamming_code(k)<<endl;
+    //
+   // cout<<hamming_code(k)<<endl;
     return 0;
 }
