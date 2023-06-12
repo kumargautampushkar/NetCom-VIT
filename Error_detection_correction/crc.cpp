@@ -126,7 +126,7 @@ int main(int argc, char const *argv[])
     
     cout<<"The reciever end data is "<<reciever_data<<endl;
     cout<<endl;
-    
+
     bool isNotError=crc_check(reciever_data,fx);
     if(isNotError){
         cout<<"No error detected"<<endl;
@@ -136,3 +136,4 @@ int main(int argc, char const *argv[])
     }
     return 0;
 }
+
